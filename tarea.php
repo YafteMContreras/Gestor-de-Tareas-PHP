@@ -1,16 +1,25 @@
 <?php
 // Función que crea tareas
-function crearTarea(string $titulo, int $prioridad = 1, bool $completada = false) : array{
+function crearTarea(string $titulo, callable $valida, int $prioridad = 1, bool $completada = false) : array{
 	static $id = 0;
+	if (!$valida($titulo)){
+		echo "El titulo no debe estar vacío o tener menos de 3 caracteres\n";
+		return [];
+	}
         $tarea = ["id" => $id, "titulo" => $titulo, "prioridad" => $prioridad, "completada" => $completada];
 	$id++;
 	return $tarea;
 }
 
-$tareas = [crearTarea("Estudiar PHP", 2), crearTarea("Terminar proyecto"), crearTarea("Leer documentación", 3, true)];
+$tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", validarTitulo(...), 3, true)];
+array_filter($tareas);
 
 var_dump($tareas);
 
+// Función que valida titulos
+function validarTitulo(string $titulo) : bool{
+	return preg_match('/^[\w]{3,}/',$titulo);
+}
 
 // Función para texto de prioridad
 function textoPrioridad(int $prioridad) : string{
