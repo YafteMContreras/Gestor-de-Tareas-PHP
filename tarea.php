@@ -1,7 +1,10 @@
 <?php
 // Función que crea tareas
 function crearTarea(string $titulo, int $prioridad = 1, bool $completada = false) : array{
-        return["titulo" => $titulo, "prioridad" => $prioridad, "completada" => $completada];
+	static $id = 0;
+        $tarea = ["id" => $id, "titulo" => $titulo, "prioridad" => $prioridad, "completada" => $completada];
+	$id++;
+	return $tarea;
 }
 
 $tareas = [crearTarea("Estudiar PHP", 2), crearTarea("Terminar proyecto"), crearTarea("Leer documentación", 3, true)];
@@ -20,9 +23,10 @@ function textoPrioridad(int $prioridad) : string{
 
 // Función que imprime tareas
 function imprimeTareas(array $array, string $texto, callable $textoPrioridad) : void {
-	echo "$texto: " . count($array) . "\n";
+	echo sprintf("%s: %d\n", $texto, count($array));
 	foreach ($array as $tarea){
 		echo "titulo: {$tarea['titulo']}; prioridad: " . $textoPrioridad($tarea['prioridad']) . "\n";
+
 	}
 }
 
