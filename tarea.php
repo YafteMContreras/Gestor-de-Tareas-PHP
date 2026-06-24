@@ -12,7 +12,7 @@ function crearTarea(string $titulo, callable $valida, int $prioridad = 1, bool $
 }
 
 $tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", validarTitulo(...), 3, true)];
-array_filter($tareas);
+$tareas = array_filter($tareas);
 
 var_dump($tareas);
 
