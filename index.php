@@ -33,6 +33,21 @@ function crearTarea(string $titulo, callable $valida, int $prioridad = 1, bool $
 $tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", validarTitulo(...), 3, true)];
 $tareas = array_filter($tareas);
 
+// Implementa lógica de registro de tareas
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+	// Sanitiza los datos
+	$tarea_titulo = htmlspecialchars($_POST['titulo'] ?? '', ENT_QUOTES, 'UTF-8');
+	if ($_POST['prioridad'] < 1 || $_POST['prioridad'] > 3){
+		echo "ERROR: Debe seleccionar un error para la prioridad\n";
+	}else{
+		$tarea_prioridad = 1;
+		$nuevaTarea = crearTarea($tarea_titulo, validarTitulo(...), $tarea_prioridad);
+		if ($nuevaTarea !== []){
+			$tareas[count($tareas)] = $nuevaTarea;
+		}
+	}
+}
+
 // var_dump($tareas);
 
 // Función que valida titulos
