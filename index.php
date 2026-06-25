@@ -37,10 +37,11 @@ $tareas = array_filter($tareas);
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 	// Sanitiza los datos
 	$tarea_titulo = htmlspecialchars($_POST['titulo'] ?? '', ENT_QUOTES, 'UTF-8');
-	if ($_POST['prioridad'] < 1 || $_POST['prioridad'] > 3){
+	$tarea_prioridad = (int)$_POST['prioridad'];
+
+	if ($_POST[$tarea_prioridad < 1 || $tarea_prioridad > 3){
 		echo "ERROR: Debe seleccionar un error para la prioridad\n";
 	}else{
-		$tarea_prioridad = 1;
 		$nuevaTarea = crearTarea($tarea_titulo, validarTitulo(...), $tarea_prioridad);
 		if ($nuevaTarea !== []){
 			$tareas[count($tareas)] = $nuevaTarea;
