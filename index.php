@@ -3,6 +3,7 @@ require_once __DIR__ . '/config/config.php';
 
 require_once __DIR__ . '/includes/funciones.php';
 require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/formulario.php';
 
 $tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", validarTitulo(...), 3, true)];
 $tareas = array_filter($tareas);
@@ -37,4 +38,5 @@ $pendientes = array_values($pendientes);
 imprimeTareas($completadas, "Tareas completadas", textoPrioridad(...));
 imprimeTareas($pendientes, "Tareas pendientes", textoPrioridad(...));
 
+require_once __DIR__ .  '/includes/footer';
 ?>
