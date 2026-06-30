@@ -4,7 +4,7 @@ require_once __DIR__ . '/config/config.php';
 require_once __DIR__ . '/includes/funciones.php';
 require_once __DIR__ . '/includes/header.php';
 
-$tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", val>
+$tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", validarTitulo(...), 3, true)];
 $tareas = array_filter($tareas);
 
 // Implementa lógica de registro de tareas
