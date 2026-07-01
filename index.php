@@ -1,12 +1,15 @@
 <?php
 require_once __DIR__ . '/config/config.php';
 
+require_once __DIR__ . '/includes/Validable.php';
+require_once __DIR__ . '/includes/ContadorTareas.php';
+require_once __DIR__ . '/includes/Tarea.php';
 require_once __DIR__ . '/includes/funciones.php';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/formulario.php';
 
-$tareas = [crearTarea("Estudiar PHP", validarTitulo(...), 2), crearTarea("Terminar proyecto", validarTitulo(...)), crearTarea("Leer documentación", validarTitulo(...), 3, true)];
-$tareas = array_filter($tareas);
+$tareas = [new Tarea("Estudiar PHP", prioridad: 2), new Tarea("Terminar proyecto"), new Tarea("Leer documentación", prioridad: 3, completada: true)];
+$tareas = array_filter($tareas, fn($a) => $a->esValido());
 
 // Implementa lógica de registro de tareas
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
