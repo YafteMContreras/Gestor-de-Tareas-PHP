@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         if ($tarea_prioridad < 1 || $tarea_prioridad > 3){
                 echo "ERROR: Debe seleccionar un valor para la prioridad\n";
         }else{
-                $nuevaTarea = crearTarea($tarea_titulo, validarTitulo(...), $tarea_prioridad);
+                $nuevaTarea = new Tarea($tarea_titulo, prioridad: $tarea_prioridad);
                 if ($nuevaTarea !== []){
                         $tareas[count($tareas)] = $nuevaTarea;
                 }
