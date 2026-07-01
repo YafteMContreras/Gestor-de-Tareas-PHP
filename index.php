@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                 echo "ERROR: Debe seleccionar un valor para la prioridad\n";
         }else{
                 $nuevaTarea = new Tarea($tarea_titulo, prioridad: $tarea_prioridad);
-                if ($nuevaTarea !== []){
+                if ($nuevaTarea->esValido()){
                         $tareas[count($tareas)] = $nuevaTarea;
                 }
         }
@@ -38,8 +38,8 @@ $pendientes = array_filter($tareas, fn($a) => $a["completada"] === false);
 $pendientes = array_values($pendientes);
 
 // Imprime las listas
-imprimeTareas($completadas, "Tareas completadas", textoPrioridad(...));
-imprimeTareas($pendientes, "Tareas pendientes", textoPrioridad(...));
+imprimeTareas($completadas, "Tareas completadas");
+imprimeTareas($pendientes, "Tareas pendientes";
 
 require_once __DIR__ .  '/includes/footer.php';
 ?>

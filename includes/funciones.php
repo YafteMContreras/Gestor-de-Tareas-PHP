@@ -41,7 +41,7 @@ function imprimeTareas(array $array, string $texto) : void {
                 <tr>
                                 <td><?php echo sprintf("%03d", $tarea->id) ?></td>
                                 <td><?php echo sprintf("%-20s", $tarea->titulo) ?></td>
-                                <td><?php echo sprintf("%-10s", $tarea->textoPrioridad() ?></td>
+                                <td><?php echo sprintf("%-10s", $tarea->textoPrioridad()) ?></td>
                 </tr>
                         <?php endforeach; ?>
         </table>
