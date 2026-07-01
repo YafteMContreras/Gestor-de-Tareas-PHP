@@ -1,9 +1,5 @@
 <?php
-class ContadorTareas(){
-	public function __construct(
-		private static int $total,
-	) {}
-
+class ContadorTareas{
 	public static function incrementar() : void {
 		self::$total++;
 	}
