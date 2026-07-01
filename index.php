@@ -28,18 +28,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 // Ordena el arreglo por prioridad ascendente
-usort($tareas, fn($a, $b) => $a["prioridad"] <=> $b["prioridad"]);
+usort($tareas, fn($a, $b) => $a->prioridad <=> $b->prioridad);
 
 // Separa la lista en completadas y pendientes
-$completadas = array_filter($tareas, fn($a) => $a["completada"] === true);
+$completadas = array_filter($tareas, fn($a) => $a->completada === true);
 $completadas = array_values($completadas);
 
-$pendientes = array_filter($tareas, fn($a) => $a["completada"] === false);
+$pendientes = array_filter($tareas, fn($a) => $a->completada === false);
 $pendientes = array_values($pendientes);
 
 // Imprime las listas
 imprimeTareas($completadas, "Tareas completadas");
-imprimeTareas($pendientes, "Tareas pendientes";
+imprimeTareas($pendientes, "Tareas pendientes");
 
 require_once __DIR__ .  '/includes/footer.php';
 ?>
