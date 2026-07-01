@@ -7,8 +7,11 @@ public class Tarea{
 		public bool $completada = false
 	) {}
 
-
-
+	public class textoPrioridad() : string {
+		return match($this->prioridad){
+			1 => "Alta", 2 => "Media", 3 => "Baja",
+		};
+	}
 }
 
 
