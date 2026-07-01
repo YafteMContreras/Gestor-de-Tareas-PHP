@@ -1,5 +1,5 @@
 <?php
-class Tarea{
+class Tarea implements Validable {
 	public function __construct(
 		public string $titulo,
 		public readonly int $id = 0,
