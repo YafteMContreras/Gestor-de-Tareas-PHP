@@ -1,15 +1,15 @@
 <?php
-require_once __DIR__ . '/includes/TareaInvalidaException.php';
+require_once __DIR__ . '/TareaInvalidaException.php';
 
-class Tarea implements Validable {
+class Tarea {
 	public function __construct(
 		public string $titulo,
 		public readonly int $id = 0,
 		public int $prioridad = 1,
 		public bool $completada = false
 	) {
-		if (!preg_match('/^[\w]{3,}/',$this->titulo){
-			throw new TareaInvalidaException ("Titulo invalido");
+		if (!preg_match('/^[\w]{3,}/',$this->titulo)) {
+			throw new TareaInvalidaException("Titulo invalido");
 		}
 	}
 
