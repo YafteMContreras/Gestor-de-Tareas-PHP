@@ -9,7 +9,7 @@ class Tarea {
 		public bool $completada = false
 	) {
 		if (!preg_match('/^[\w]{3,}/',$this->titulo)) {
-			throw new TareaInvalidaException("Titulo invalido");
+			throw new TareaInvalidaException("$titulo");
 		}
 	}
 
