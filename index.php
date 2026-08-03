@@ -9,7 +9,7 @@ require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/formulario.php';
 
 $tareas = [new Tarea("Estudiar PHP", prioridad: 2), new Tarea("Terminar proyecto"), new Tarea("Leer documentación", prioridad: 3, completada: true)];
-$tareas = array_filter($tareas, fn($a) => $a->esValido());
+//$tareas = array_filter($tareas, fn($a) => $a->esValido());
 
 // Implementa lógica de registro de tareas
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -20,10 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         if ($tarea_prioridad < 1 || $tarea_prioridad > 3){
                 echo "ERROR: Debe seleccionar un valor para la prioridad\n";
         }else{
-                $nuevaTarea = new Tarea($tarea_titulo, prioridad: $tarea_prioridad);
-                if ($nuevaTarea->esValido()){
-                        $tareas[count($tareas)] = $nuevaTarea;
-                }
+		try{
+			$nuevaTarea = new Tarea($tarea_titulo, prioridad: $tarea_prioridad);
+	                $tareas[count($tareas)] = $nuevaTarea;
+		}catch (TareaInvalidaException $e){
+			echo "Error: " . $e->getMessage() . "\n";
+		}
+			
         }
 }
 
