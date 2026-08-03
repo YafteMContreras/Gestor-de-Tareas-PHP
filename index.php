@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/config/config.php';
-
+require_once __DIR__ . '/includes/TareaInvalidaException.php';
 require_once __DIR__ . '/includes/Validable.php';
 require_once __DIR__ . '/includes/ContadorTareas.php';
 require_once __DIR__ . '/includes/Tarea.php';
