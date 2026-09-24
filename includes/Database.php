@@ -1,11 +1,11 @@
 class Database {
-	private static ?PDO $pdo = NULL;
+	private static ?PDO $pdo = null;
 
-	public static function __construct() {}	// Permite insancias directamente
+	private function __construct() {}	// Impide instanciar directamente
 
 	public static function obtenerConexión(): PDO {
-		if (self::$pdo === NULL){
-			$pdo = new PDO("mysql:host=localhost;dbname=gestorTareas;charset=utf8mb4",
+		if (self::$pdo === null){
+			self::$pdo = new PDO('mysql:host=localhost;dbname=gestorTareas;charset=utf8mb4',
 			"usuario",
 			"contraseña",[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 			);
