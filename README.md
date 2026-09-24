@@ -4,6 +4,19 @@ Este proyecto es un gestor de tareas construido con PHP 8 y HTML5, utilizando Pr
 Permite organizar las tareas de acuerdo al nivel de prioridad y separar las tareas completas de las que aún están pendientes.
 Además, utiliza sanitización de datos para prevenir XSS.
 
+## Capturas de pantalla
+### Estado inicial
+![Estado inicial](screenshots/inicial.png)
+
+### Error de prioridad
+![Error de prioridad](screenshots/errorPrioridad.png)
+
+### Error de nombre
+![Error de nombre](screenshots/errorNombre.png)
+
+### Tarea creada exitosamente
+![Tarea creada exitosamente](screenshots/exito.png)
+
 ## Conceptos aplicados
   * Programación Orientada a Objetos
   * Exceptions
