@@ -5,9 +5,8 @@ class Database {
 
 	public static function obtenerConexión(): PDO {
 		if (self::$pdo === null){
-			self::$pdo = new PDO('mysql:host=localhost;dbname=gestorTareas;charset=utf8mb4',
-			"usuario",
-			"contraseña",[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+			$dsn = 'mysql:host=' . DB_HOST . ';dbname= ' . DB_NAME . ';charset=utf8mb4';
+			self::$pdo = new PDO($dsn,DB_USER,DB_PASS,[PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 			);
 		}
 		return self::$pdo;
