@@ -8,6 +8,7 @@ require_once __DIR__ . '/includes/Tarea.php';
 require_once __DIR__ . '/includes/funciones.php';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/formulario.php';
+require_once __DIR__ . '/includes/Database.php';
 
 $tareas = [new Tarea("Estudiar PHP", prioridad: 2), new Tarea("Terminar proyecto"), new Tarea("Leer documentación", prioridad: 3, completada: true)];
 
