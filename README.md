@@ -20,19 +20,21 @@ Además, utiliza sanitización de datos para prevenir XSS.
   5. Abrir en el navegador: http://localhost:8000
 
 ## Estructura de Archivos
-proyecto/    * Carpeta principal
-|─ config    *Carpeta que contiene las configuraciones
-|     |─ config.php    * Archivo de configuraciones
-|─ includes/    * Carpeta de componentes y clases 
-|     |─ ContadorTareas.php    * Archivo de clase que permite llevar el conteo de tareas
-|     |─ Database.php    * Archivo de clase que permite establecer la conexión con MySQL usando la conexión con Singleton
-|     |─ footer.php    * Archivo que contiene el footer de la página
-|     |─ formulario.php    * Archivo que contiene la estructura del formulario para registrar tareas
-|     |─ funciones.php    * Archivo que contiene las funciones utilizadas
-|     |─ header.php    * Archivo que contiene el header de la página
-|     |─ TareaInvalidaException.php    * Archivo de clase Exception para tareas invalidas
-|     |─ Tarea.php    * Archivo clase para crear Tareas como objetos
-|─ index.php    * Archivo principal que maneja toda la lógica de negocio
+```
+Gestor-de-Tareas-PHP/
+├── config/
+│   └── config.php          # Configuración global y constantes
+├── includes/
+│   ├── ContadorTareas.php  # Clase para IDs autoincrementales
+│   ├── Database.php        # Conexión PDO con patrón Singleton
+│   ├── footer.php          # Cierre HTML
+│   ├── formulario.php      # Formulario de registro de tareas
+│   ├── funciones.php       # Funciones de presentación
+│   ├── header.php          # Cabecera HTML
+│   ├── Tarea.php           # Clase Tarea
+│   └── TareaInvalidaException.php  # Excepción personalizada
+└── index.php               # Lógica principal
+```
 
 ## Roadmap
  * **v2.0** — Podrá crear cuentas locales de usuario, guardar tareas de forma persistente en una base de datos, exportar tareas en formato CSV o PDF y crear, borrar y actualizar tareas.
