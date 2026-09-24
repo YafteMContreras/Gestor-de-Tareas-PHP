@@ -17,7 +17,7 @@ Conceptos aplicados:
   4. Levantar el servidor embebido: php -S localhost:8000
   5. Abrir en el navegador: http://localhost:8000
 
-**Estructura del proyecto**
+**Estructura de Archivos**
 proyecto/    * Carpeta principal
 |─ config    *Carpeta que contiene las configuraciones
 |     |─ config.php    * Archivo de configuraciones
@@ -31,3 +31,7 @@ proyecto/    * Carpeta principal
 |     |─ TareaInvalidaException.php    * Archivo de clase Exception para tareas invalidas
 |     |─ Tarea.php    * Archivo clase para crear Tareas como objetos
 |─ index.php    * Archivo principal que maneja toda la lógica de negocio
+
+**Roadmap**
+ * v2.0 — Nivel Intermedio: Podrá crear cuentas locales de usuario, guardar tareas de forma persistente en una base de datos, exportar tareas en formato CSV o PDF y crear, borrar y actualizar tareas.
+ * v3.0 — Implementará sistema de roles, notificaciones por email al crear o completar tareas, API REST documentada y consumible desde aplicaciones externas y Dashboard con estadísticas
