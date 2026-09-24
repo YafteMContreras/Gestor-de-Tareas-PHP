@@ -10,6 +10,12 @@ require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/formulario.php';
 require_once __DIR__ . '/includes/Database.php';
 
+if(isset($_SESSION['flash'])){
+	$flash = $_SESSION['flash'];
+	unset($_SESSION['flash']);
+	echo "$flash[tipo]: $flash[mensaje]";
+}
+
 $tareas = [new Tarea("Estudiar PHP", prioridad: 2), new Tarea("Terminar proyecto"), new Tarea("Leer documentación", prioridad: 3, completada: true)];
 
 // Implementa lógica de registro de tareas
@@ -19,13 +25,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         $tarea_prioridad = (int)$_POST['prioridad'];
 
         if ($tarea_prioridad < 1 || $tarea_prioridad > 3){
-                echo "ERROR: Debe seleccionar un valor para la prioridad\n";
+		$_SESSION['flash'] = ['tipo' => 'ERROR', 'mensaje' => 'Debe seleccionar un valor para la prioridad'];
+		header('Location: index.php');
+		exit;
         }else{
 		try{
 			$nuevaTarea = new Tarea($tarea_titulo, prioridad: $tarea_prioridad);
 	                $tareas[count($tareas)] = $nuevaTarea;
+			$_SESSION['flash'] = ['tipo' => "Exito", 'mensaje' => "Tarea creada exitosamente"];
+			header('Location: index.php');
+			exit;
 		}catch (TareaInvalidaException $e){
-			echo "Error: " . $e->getMessage() . "\n";
+			$_SESSION['flash'] = ['tipo' => "Error", 'mensaje' => $e->getMessage()];
+			header('Location: index.php');
+			exit;
 		}
         }
 }
