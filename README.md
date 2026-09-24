@@ -1,8 +1,9 @@
 # Gestor de tareas PHP
 ## Descripción del proyecto
-Este proyecto es un gestor de tareas construido con PHP 8 y HTML5, utilizando Programación orientada a Objetos para la creación de tareas, uso de Excepciones que permiten manejar los errores adecuadamente y una preparación de arquitectura para persistencia con PDO para establecer la conexión con MySQL, por el momento usa datos en memoria.
+Gestor de tareas construido con PHP 8 y HTML5 que demuestra el uso de Programación orientada a Objetos, manejo de Excepciones y sesiones.
 Permite organizar las tareas de acuerdo al nivel de prioridad y separar las tareas completas de las que aún están pendientes.
-Además, utiliza sanitización de datos para prevenir XSS.
+La arquitectura está preparada para persistencia con PDO/MySQL (actualmente usa datos en memoria).
+Incluye sanitización de datos para prevenir XSS.
 
 ## Capturas de pantalla
 ### Estado inicial
@@ -16,6 +17,10 @@ Además, utiliza sanitización de datos para prevenir XSS.
 
 ### Tarea creada exitosamente
 ![Tarea creada exitosamente](screenshots/exito.png)
+
+## Tecnologías
+- PHP 8
+- HTML5
 
 ## Conceptos aplicados
   * Programación Orientada a Objetos
