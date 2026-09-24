@@ -6,4 +6,9 @@ date_default_timezone_set('America/Mexico_City');
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'gestorTareas');
+define('DB_USER', 'User');
+define('DB_PASS', 'Pass');
 ?>
