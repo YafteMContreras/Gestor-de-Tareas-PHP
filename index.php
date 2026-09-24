@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 		}catch (TareaInvalidaException $e){
 			echo "Error: " . $e->getMessage() . "\n";
 		}
-			
         }
 }
 
