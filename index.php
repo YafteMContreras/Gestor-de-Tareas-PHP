@@ -10,7 +10,7 @@ require_once __DIR__ . '/includes/formulario.php';
 
 use \App\Models\Tarea;
 use \App\Exceptions\TareaInvalidaException;
-use \App\Databases\Database.php;
+use \App\Databases\Database;
 
 if(isset($_SESSION['flash'])){
 	$flash = $_SESSION['flash'];
