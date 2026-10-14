@@ -2,13 +2,15 @@
 session_start();
 
 require_once __DIR__ . '/config/config.php';
-require_once __DIR__ . '/includes/TareaInvalidaException.php';
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/includes/ContadorTareas.php';
-require_once __DIR__ . '/includes/Tarea.php';
 require_once __DIR__ . '/includes/funciones.php';
 require_once __DIR__ . '/includes/header.php';
 require_once __DIR__ . '/includes/formulario.php';
-require_once __DIR__ . '/includes/Database.php';
+
+use \App\Models\Tarea;
+use \App\Exceptions\TareaInvalidaException;
+use \App\Databases\Database.php;
 
 if(isset($_SESSION['flash'])){
 	$flash = $_SESSION['flash'];
