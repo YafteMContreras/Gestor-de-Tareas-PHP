@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/TareaInvalidaException.php';
 namespace App\Models;
+require_once __DIR__ . '/TareaInvalidaException.php';
 
 class Tarea {
 	public function __construct(
