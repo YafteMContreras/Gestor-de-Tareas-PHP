@@ -1,4 +1,6 @@
 <?php
+namespace App\Models;
+
 class ContadorTareas{
 	private static int $total = 0;
 
