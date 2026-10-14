@@ -1,0 +1,16 @@
+{
+    "name": "yafte/gestor-de-proyectos-php",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "YafteMContreras",
+            "email": "yaftemontielcontreras@gmail.com"
+        }
+    ],
+    "require": {}
+}
